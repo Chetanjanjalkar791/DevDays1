@@ -88,6 +88,18 @@ npm run typecheck:all    # both of the above
 > [!NOTE]
 > The native compiler is used only for type checking (`--noEmit`); the site is still built by `astro build` (Vite/esbuild). The classic `typescript` package stays on v6 until `typescript-eslint` and `@astrojs/check` support the native API (~TS 7.1); a Dependabot `ignore` in `.github/dependabot.yml` holds the classic `typescript@7` bump until then.
 
+## Coding Standards & Documentation
+
+Clear, documented coding standards keep the codebase consistent and make it easier for new contributors (and Copilot) to produce correct changes. See [`.github/instructions/`](.github/instructions/) for detailed guidance:
+
+- **[`documentation.instructions.md`](.github/instructions/documentation.instructions.md)** — Comment philosophy (explain *why*, not *what*), JSDoc/TSDoc standards for exported functions and component props, TypeScript naming and type conventions
+- **[`astro.instructions.md`](.github/instructions/astro.instructions.md)** — Astro pages, layouts, components, routing, and component documentation
+- **[`drizzle.instructions.md`](.github/instructions/drizzle.instructions.md)** — Drizzle ORM + Node SQLite patterns and data-access helper documentation
+- **[`ui.instructions.md`](.github/instructions/ui.instructions.md)** — UI component strategy, testability, and accessibility
+- **[`style.instructions.md`](.github/instructions/style.instructions.md)** — Tailwind CSS v4 patterns and dark theme guidelines
+- **[`unit-tests.instructions.md`](.github/instructions/unit-tests.instructions.md)** — Vitest unit testing guidelines
+- **[`playwright.instructions.md`](.github/instructions/playwright.instructions.md)** — Playwright E2E testing guidelines
+
 ## Copilot Agents & Skills
 
 This project ships Copilot customizations to assist with quality assurance:

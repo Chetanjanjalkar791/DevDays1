@@ -38,13 +38,18 @@ The app's data lives in a local SQLite database accessed through **Drizzle ORM**
 
 ## Data-Access Helpers (injectable db)
 
-Helpers take the `db` instance as their first argument so they work both with the real client (in pages) and an in-memory client (in tests):
+Helpers take the `db` instance as their first argument so they work both with the real client (in pages) and an in-memory client (in tests). Every exported helper must include a JSDoc comment describing its purpose, parameters, and return type (see [`documentation.instructions.md`](documentation.instructions.md) for full standards):
 
 ```ts
 import { asc, count, eq } from 'drizzle-orm';
 import type { Database } from './db';
 import { games } from '../../db/schema';
 
+/**
+ * Fetches all published games, ordered by title.
+ * @param db - The Drizzle database client (injectable for testability)
+ * @returns Array of games with their associated publisher and category
+ */
 export async function getAllGameIds(db: Database): Promise<number[]> {
   const rows = await db.select({ id: games.id }).from(games).orderBy(asc(games.title));
   return rows.map((r) => r.id);
